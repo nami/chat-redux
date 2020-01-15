@@ -1,7 +1,20 @@
 body {
   font-family: Helvetica;
 }
+
 .app {
-  margin-top: 20px;
-  margin-bottom: 20px;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  .icon-col{
+    width: 5%;
+    background-color: #777777;
+  }
+  .channel-list{
+    width: 20%;
+    background-color: #eeeeee;
+  }
+  .message-list{
+    width: 60%;
+  }
 }
