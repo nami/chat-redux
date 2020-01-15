@@ -1,10 +1,6 @@
 import { SET_CHANNELS } from '../actions';
 
-export default function(state, action) {
-  if (state === undefined) {
-      return [ "Japan", "Programmers", "Dogs" ];
-  }
-
+export default function(state = null, action) {
   switch (action.type) {
     case SET_CHANNELS:
       return action.payload

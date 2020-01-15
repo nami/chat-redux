@@ -1,15 +1,15 @@
 import React from 'react';
-import MessagesList from '../containers/messages_list'
-import ChannelList from '../containers/channel_list'
+import Messages from '../containers/messages'
+import Channels from '../containers/channels'
 
 const App = () => {
   return (
     <div className="app">
       <div className="icon-col">
-        <img src="" alt=""/>
+        <img src="https://raw.githubusercontent.com/nami/chat-redux/master/assets/images/lego.jpg" alt="icon"/>
       </div>
-      <ChannelList />
-      <MessagesList />
+      <Channels />
+      <Messages />
     </div>
   );
 };

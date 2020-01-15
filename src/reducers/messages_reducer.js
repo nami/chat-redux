@@ -1,9 +1,9 @@
-import { CURRENT_USER } from '../actions';
+import { FETCH_MESSAGES } from '../actions';
 
 export default function(state = null, action) {
   switch (action.type) {
-    case CURRENT_USER:
-      return action.payload
+    case FETCH_MESSAGES:
+      return action.payload.messages;
     default:
       return state;
   }

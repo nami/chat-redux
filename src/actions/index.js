@@ -1,9 +1,14 @@
-export const SET_MESSAGES = 'SET_MESSAGES';
+const BASE_URL = 'https://wagon-chat.herokuapp.com';
 
-export function setMessages(messages){
+export const FETCH_MESSAGES = 'FETCH_MESSAGES';
+
+export function fetchMessages(channel){
+  const url = `${BASE_URL}/${channel}/messages`;
+  const promise = fetch(url).then(r => r.json());
+
   return {
-    type: SET_MESSAGES,
-    payload: messages
+    type: FETCH_MESSAGES,
+    payload: promise
   }
 }
 
@@ -32,4 +37,8 @@ export function currentUser(user){
     type: CURRENT_USER,
     payload: user
   }
+}
+
+export function createMessage(channel, author, content) {
+  // TODO
 }

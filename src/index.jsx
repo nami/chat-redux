@@ -3,7 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
-import { logger } from 'redux-logger';
+import logger from 'redux-logger';
 import reduxPromise from 'redux-promise';
 
 // internal modules
@@ -11,38 +11,41 @@ import App from './components/app';
 import '../assets/stylesheets/application.scss';
 
 // reducers
-import messagesListReducer from './reducers/messages_list_reducer';
-import channelsListReducer from './reducers/channels_list_reducer';
+import messagesReducer from './reducers/messages_reducer';
+import channelsReducer from './reducers/channels_reducer';
 import selectedChannelReducer from './reducers/selected_channel_reducer';
 import currentUserReducer from './reducers/current_user_reducer';
 
 const initialState = {
-  messagesList:
+  messages:
   [
     {
+      "id": 1,
       "author":"anonymous92",
       "content":"Hello world!",
       "created_at":"2017-09-26T23:03:16.365Z"
     },
     {
+      "id": 2,
       "author":"anonymous77",
       "content":"My name is anonymous77",
       "created_at":"2017-09-26T23:03:21.194Z"
     }
   ],
-  channelsList: [ "Japan", "Programmers", "Dogs" ],
-  selectedChannel: "Japan",
-  currentUser: `anonymous${Math.floor(10 + (Math.random() * 90))}`
+  channels: [ 'general', 'react', 'dogs' ],
+  selectedChannel: 'dogs',
+  currentUser: prompt("What is your username?") || `anonymous${Math.floor(10 + (Math.random() * 90))}`
 };
 
 // State and reducers
 const reducers = combineReducers({
-  messagesList: messagesListReducer,
-  channelsList: channelsListReducer,
+  messages: messagesReducer,
+  channels: channelsReducer,
   selectedChannel: selectedChannelReducer,
   currentUser: currentUserReducer
 });
 
+// middlewares
 const middlewares = applyMiddleware(reduxPromise, logger);
 
 // render an instance of the component in the DOM
