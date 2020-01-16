@@ -1,6 +1,6 @@
 # Chat App
 
-A chat App built with:
+A chat app built with:
 
 - this [API](https://github.com/lewagon/wagon-chat-api#wagon-chat-api-documentation)
 - React, ReactDOM
