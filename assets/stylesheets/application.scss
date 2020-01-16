@@ -1,5 +1,7 @@
 body {
   font-family: Helvetica;
+  margin: 0;
+  padding: 0;
 }
 
 .app {
@@ -21,9 +23,10 @@ body {
     background-color: #eeeeee;
   }
   .message-list{
+    height: 100%;
+    overflow: auto;
     width: calc(100% - 6em - 18em);
-    padding: 3em 3em;
-    position: relative;
+    padding: 1em 0 1em 3em;
     .message{
       .message-details{
         display: flex;
@@ -40,12 +43,14 @@ body {
       }
     }
     .message-form{
-      margin-left: -3em;
-      padding: 1em 1em;
+      margin-left: -1.7em;
+      padding: 1em 0 1em 1em;
       width: 100%;
       display: flex;
-      position: absolute;
       bottom: 0;
+      button{
+        padding-left: 8px;
+      }
     }
   }
 }

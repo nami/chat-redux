@@ -15,6 +15,7 @@ import messagesReducer from './reducers/messages_reducer';
 import channelsReducer from './reducers/channels_reducer';
 import selectedChannelReducer from './reducers/selected_channel_reducer';
 import currentUserReducer from './reducers/current_user_reducer';
+import createMessageReducer from './reducers/create_message_reducer';
 
 const initialState = {
   messages:
@@ -42,7 +43,8 @@ const reducers = combineReducers({
   messages: messagesReducer,
   channels: channelsReducer,
   selectedChannel: selectedChannelReducer,
-  currentUser: currentUserReducer
+  currentUser: currentUserReducer,
+  createMessage: messagesReducer
 });
 
 // middlewares

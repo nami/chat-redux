@@ -1,4 +1,7 @@
 import React from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { createMessage } from '../actions/index';
 
 class MessageForm extends React.Component {
   constructor(props){
@@ -12,7 +15,10 @@ class MessageForm extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
+    this.props.createMessage(this.props.selectedChannel, this.props.currentUser, this.state.value);
+    this.setState({ value: '' });
   }
+
 
   render(){
     return(
@@ -24,4 +30,15 @@ class MessageForm extends React.Component {
   }
 }
 
-export default MessageForm;
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators( { createMessage }, dispatch );
+}
+
+function mapStateToProps(state) {
+  return {
+    currentUser: state.currentUser,
+    selectedChannel: state.selectedChannel
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(MessageForm);

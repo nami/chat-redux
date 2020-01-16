@@ -11,6 +11,14 @@ class Messages extends React.Component {
     this.fetchMessages();
   }
 
+  componentDidMount(){
+    this.newMessages = setInterval(this.fetchMessages, 5000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.newMessages)
+  }
+
   fetchMessages = () => {
     this.props.fetchMessages("dogs");
   }
