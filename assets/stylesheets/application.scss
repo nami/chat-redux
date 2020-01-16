@@ -21,6 +21,22 @@ body {
   .channel-list{
     width: 18em;
     background-color: #eeeeee;
+    h5{
+      font-size: 16px;
+      font-weight: bold;
+      padding: 1em 0 1.5em 1.5em;
+    }
+    h6{
+      font-size: 16px;
+      padding: 0 0 0 1.5em;
+      color: #888888;
+      &:hover{
+        color: black;
+      }
+    }
+    .active{
+      font-weight: bold;
+    }
   }
   .message-list{
     height: 100%;

@@ -24,7 +24,7 @@ class Messages extends React.Component {
   }
 
   fetchMessages = () => {
-    this.props.fetchMessages("dogs");
+    this.props.fetchMessages(this.props.selectedChannel);
   }
 
   render() {
@@ -47,7 +47,8 @@ function mapDispatchToProps(dispatch) {
 
 function mapStateToProps(state) {
   return {
-    messages: state.messages
+    messages: state.messages,
+    selectedChannel: state.selectedChannel
   };
 }
 

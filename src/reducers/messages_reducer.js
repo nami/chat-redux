@@ -1,4 +1,4 @@
-import { FETCH_MESSAGES, CREATE_MESSAGE } from '../actions';
+import { FETCH_MESSAGES, CREATE_MESSAGE, SELECT_CHANNEL } from '../actions';
 
 export default function(state = null, action) {
   switch (action.type) {
@@ -8,6 +8,10 @@ export default function(state = null, action) {
       const dupState = state.slice(0);
       dupState.push(action.payload);
       return dupState;
+    case SELECT_CHANNEL: {
+      // new channel clear messages
+      return [];
+    }
     default:
       return state;
   }
