@@ -15,6 +15,10 @@ class Messages extends React.Component {
     this.newMessages = setInterval(this.fetchMessages, 5000);
   }
 
+  componentDidUpdate() {
+    this.messagesBox.scrollTop = this.messagesBox.scrollHeight;
+  }
+
   componentWillUnmount() {
     clearInterval(this.newMessages)
   }
@@ -25,7 +29,7 @@ class Messages extends React.Component {
 
   render() {
     return(
-      <div className="message-list">
+      <div className="message-list" ref={(messagesBox) => { this.messagesBox = messagesBox; }}>
         {
           this.props.messages.map((message) => {
             return <Message key={ message.id } message={ message } />
